@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .maindisplay{
+        background-color:
+#3B4664;
+        height: 97vh;
+        width: 98vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+.display{
+    background-color: #000000;
+    width:20%;
+    height: 10%;
+   
+    border-radius: 5px;
+    color: white;
+    float: right;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 10px;
+}
+.calculation{
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 20%;
+    height: 40%;
+    border-radius: 5px;
+    background-color: #000000;
+ 
+}
+.firstrow{
+    border: 2px solid black;
+    margin:2px;
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    
+
+   
+}
+.button{
+ 
+    width: 50%;
+    margin: 2px;
+    padding: 4px;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.special{
+    border: 2px solid black;
+    width:80%
+}
+
+.button1{
+    width: 47%;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+    color: white;
+    border: white;
+    cursor: pointer;
+    
+}
+#red{
+    background-color: red;
+    color: white;
+    border: red;
+    
+}
+#common{
+    background-color:#3B4664 ;
+   
+}
+#colo{
+    background-color:#3B4664 ;
+}
+
+</style>
+<style>
+    /* Your CSS styles here */
+</style>
+<body>
+    <div class="maindisplay">
+        <input id="display" class="display" value="0" readonly>
+        <div class="calculation">
+            <div class="firstrow">
+                <button class="button">7</button>
+                <button class="button">8</button>
+                <button class="button">9</button>
+                <button id="common" class="button">Del</button>
+            </div>
+            <div id="common1" class="firstrow">
+                <button class="button">4</button>
+                <button class="button">5</button>
+                <button class="button">6</button>
+                <button class="button">+</button>
+            </div>
+            <div id="common2" class="firstrow">
+                <button class="button">1</button>
+                <button class="button">2</button>
+                <button class="button">3</button>
+                <button class="button">-</button>
+            </div>
+            <div class="firstrow">
+                <button class="button">.</button>
+                <button class="button">0</button>
+                <button class="button">/</button>
+                <button class="button">*</button>
+            </div>
+            
+            <div class="special">
+                <button id="colo" class="button1" onclick="clearDisplay()">Reset</button>
+                <button class="button1" id="red" onclick="calculate()">=</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentInput = '';
+
+        function clearDisplay() {
+            currentInput = '';
+            document.querySelector('input').value = '0';
+        }
+
+        function calculate() {
+            try {
+                currentInput = eval(currentInput);
+                document.querySelector('input').value = currentInput;
+            } catch (error) {
+                document.querySelector('input').value = 'Error';
+            }
+        }
+
+        let buttons = document.querySelectorAll('.button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const value = e.target.textContent;
+                if (value === '=') {
+                    calculate();
+                } else if (value === 'Del') {
+                    currentInput = currentInput.slice(0, -1); // Remove the last character
+                    document.querySelector('input').value = currentInput;
+                } else {
+                    currentInput = currentInput + value;
+                    document.querySelector('input').value = currentInput;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
