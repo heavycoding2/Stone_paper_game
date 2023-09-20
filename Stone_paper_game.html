@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Rock, Paper, Scissors</title>
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.choices {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.choice {
+    width: 100px;
+    height: 100px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.choice img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.choice:hover {
+    background-color: #e0e0e0;
+}
+
+.result {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1>Rock, Paper, Scissors</h1>
+        <div class="scoreboard">
+            <p>Computer: <span id="computer-score">0</span></p>
+            <p>You: <span id="human-score">0</span></p>
+        </div>
+        <div class="choices">
+            <div class="choice" id="rock">
+                <img src="https://via.placeholder.com/100?text=Rock" alt="Rock">
+            </div>
+            <div class="choice" id="paper">
+                <img src="https://via.placeholder.com/100?text=Paper" alt="Paper">
+            </div>
+            <div class="choice" id="scissors">
+                <img src="https://via.placeholder.com/100?text=Scissors" alt="Scissors">
+            </div>
+        </div>
+        <div class="result">
+            <p id="result-message">Choose your weapon!</p>
+        </div>
+        <button id="rules-btn">Rules</button>
+    </div>
+
+    <!-- Rules Popup -->
+    <div id="rules-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-popup" id="close-rules-popup">&times;</span>
+            <h2>Rules</h2>
+            <p>Rock beats Scissors. Scissors beats Paper. Paper beats Rock.</p>
+        </div>
+    </div>
+
+    <script>
+// JavaScript for Rock, Paper, Scissors game
+
+// Elements
+const choices = document.querySelectorAll('.choice');
+const computerScoreDisplay = document.getElementById('computer-score');
+const humanScoreDisplay = document.getElementById('human-score');
+const resultMessage = document.getElementById('result-message');
+const rulesBtn = document.getElementById('rules-btn');
+const rulesPopup = document.getElementById('rules-popup');
+const closeRulesPopup = document.getElementById('close-rules-popup');
+
+// Game variables
+let computerScore = 0;
+let humanScore = 0;
+
+// Event Listeners
+choices.forEach(choice => choice
+
+    </script>
+</body>
+</html>
